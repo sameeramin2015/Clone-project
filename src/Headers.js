@@ -1,10 +1,9 @@
 import React from "react";
-import "./Header.css";
+import "./Headers.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
-import Home from "./Home";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -59,7 +58,6 @@ function Header() {
           </Link>
         </div>
       </div>
-      <Home />
     </div>
   );
 }
