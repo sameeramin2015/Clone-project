@@ -3,16 +3,15 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import "./App.css";
 import Checkout from "./Checkout";
+import Login from "./Login";
 
 function App() {
   return (
     <Router>
       <Routes>
-        
-        <Route exact path="/Header" element={<Header />} />
-        <Route exact path="/Checkout" element={<Checkout />} />
-        <Route path="/">
-        </Route>
+        <Route path="/" element={<Header />} />
+        <Route path="/Checkout" element={<Checkout />} />
+        <Route path="/Login" element={<Login />} />
       </Routes>
     </Router>
   );

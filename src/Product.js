@@ -10,11 +10,11 @@ function Product({ id, title, image, price, rating }) {
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
-        id: id,
-        title: title,
-        image: image,
-        price: price,
-        rating: rating,
+        id,
+        title,
+        image,
+        price,
+        rating,
       },
     });
   };
@@ -24,8 +24,8 @@ function Product({ id, title, image, price, rating }) {
       <div className="product__info">
         <p>{title}</p>
         <p className="product__price">
-          <small>$</small>
           <strong>{price}</strong>
+          <small> € </small>
         </p>
         <div className="product__rating">
           {Array(rating)
