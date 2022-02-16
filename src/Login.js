@@ -1,14 +1,25 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'; // in react-dom v6 useHistory is changed to useNvigate
 import React, { useState } from "react";
 import { auth } from "./firebase";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const sendSubmit = () => {
+    navigate.push("/");
+  };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const signIn = (e) => {
     e.preventDefault();
     // firebase login
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(auth=> {
+        sendSubmit();
+      })
+      .catch(error => alert(error.message))
   };
 
   const register = (e) => {
@@ -17,10 +28,13 @@ function Login() {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log(auth);
+       
+        if (auth) {
+          navigate.push('/')
+        }
       })
-      .catch((error) => alert(error.message));
-  };
+      .catch(error => alert(error.message))
+  }
 
   return (
     <div className="login">
