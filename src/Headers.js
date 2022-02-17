@@ -30,7 +30,7 @@ function Header() {
               <span className="header__optionLineOne">
                 Hello {!user ? "Guest" : user.email}
               </span>
-              <span className="header__optionLineTwo">
+              <span className="header__optionLineTwo" >
                 {user ? "Sign Out" : "Sign In"}
               </span>
             </div>
